@@ -1,38 +1,315 @@
 .App {
+  background: url("background.jpg");
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+   
+}
+ 
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100vw;
+  padding: 10px;
+  max-height: 100vh;
+  height: 100%;
+ 
+}
+ 
+.item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0);
+  padding: 20px;
+  font-size: 30px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ 
+.time {
+  font-size: 80px;
+  color: white;
+  text-align: center;
+}
+ 
+.date {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+ 
+.add-widget-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+ 
+.add-widget-button:hover {
+  color: #1e1e1e;
+}
+ 
+.right-widget,
+.left-widget,
+.main-widget {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  max-width: 500px;
+}
+ 
+.none-widget {
+  position: fixed;
+  /* height: 100vh;
+  width: 100vw; */
+  top: 0px;
+  left: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+select {
+ background-color: #efaeae;
+}
+ 
+/* Modal */
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgb(0, 0, 0, 0.4);
+}
+ 
+.modal-content {
+  background-color: #183A37;
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+  max-height: 50vh;
+  overflow: scroll;
+}
+ 
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+ 
+.modal-header h2 {
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+ 
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+ 
+.widget-gallery-item {
+  color: black;
+  border: 1px solid white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+ 
+.text-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  margin-top: 10px;
+  padding-bottom: 3px;
+}
+ 
+.widget-container {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+ 
+}
+ 
+.widget-gallery-item-name{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.widget.meal-planner-widget {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow-y: auto;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.meal-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.meal-suggestions {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.selected-meals {
+  flex: 1;
+}
+
+h2.widget-title {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="number"],
+input[type="time"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+button[type="submit"],
+button[type="clear"] {
+  padding: 10px 20px;
+  background-color: #a52a2a7e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  margin-right: 10px;
+}
+
+button[type="select"],
+button[type="remove"] {
+  padding: 10px 10px;
+  background-color: #a52a2a7e;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+ul.meal-suggestions {
+  list-style: none;
+  padding: 0;
+}
+
+ul.meal-suggestions li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.meal-details h3 {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.meal-summary {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.selected-meal {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.selected-meal img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.selected-meal h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.meal-summary p {
+  margin: 5px 0;
+}
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
 }
